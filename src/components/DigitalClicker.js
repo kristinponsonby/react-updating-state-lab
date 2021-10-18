@@ -7,8 +7,8 @@ class DigitalClicker extends React.Component {
         // Define the initial state:
         this.state = {
           timesClicked: 0,
+          text: "Click me!"
         
-
         };
       }
 
@@ -18,9 +18,14 @@ class DigitalClicker extends React.Component {
           }))
         }
 
+        changeText = (text) => {
+          this.setState({ text }); 
+        } 
+
       render() {
+        const { text } = this.state
         return (
-            <button className="button" onClick={this.handleClick}> { this.state.timesClicked} </button>
+            <button onClick={ () => { this.changeText("newtext")}  } >{this.handleClick} { this.state.timesClicked} {text} </button>
             
         );
       }
